@@ -1,0 +1,21 @@
+<VRTDataset rasterXSize="833" rasterYSize="1">
+    <Metadata domain="GEOLOCATION">
+    <MDI key="LINE_OFFSET">0</MDI>
+    <MDI key="LINE_STEP">1</MDI>
+    <MDI key="PIXEL_OFFSET">0</MDI>
+    <MDI key="PIXEL_STEP">1</MDI>
+    <MDI key="X_BAND">1</MDI>
+    <MDI key="X_DATASET">NETCDF:"VNP14IMG.A2026294.1624.002.2026295184605.nc":FP_longitude</MDI>
+    <MDI key="Y_BAND">1</MDI>
+    <MDI key="Y_DATASET">NETCDF:"VNP14IMG.A2026294.1624.002.2026295184605.nc":FP_latitude</MDI>
+    </Metadata>
+    <VRTRasterBand dataType="Byte" band="1">
+    <SimpleSource>
+        <SourceFilename relativeToVRT="1">NETCDF:"VNP14IMG.A2026294.1624.002.2026295184605.nc":FP_T5</SourceFilename>
+        <SourceBand>1</SourceBand>
+        <SourceProperties RasterXSize="833" RasterYSize="1" DataType="Byte" BlockXSize="833" BlockYSize="1"/>
+        <SrcRect xOff="0" yOff="0" xSize="833" ySize="1"/>
+        <DstRect xOff="0" yOff="0" xSize="833" ySize="1"/>
+    </SimpleSource>
+    </VRTRasterBand>
+    </VRTDataset>
