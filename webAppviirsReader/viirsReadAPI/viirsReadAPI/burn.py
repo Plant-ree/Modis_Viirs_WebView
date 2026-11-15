@@ -16,12 +16,15 @@ print(cwd)
 
 gdal.UseExceptions()
 
+
+
 #print('a')
 
 #file = "a.hdf"
 p1 = [(0, 5),(-5, 5),(-5, 0),(0, 0),(0,5)]
 t1 = ("2001-02-02", "2001-02-04")
 t2 = ("2003-01-01", "2003-01-01")
+
 #try:
  #  dataset = gdal.Open(file,gdal.GA_ReadOnly) # ,gdal.GA_ReadOnly
 #except:
@@ -86,6 +89,7 @@ def process(g,h,v,isInitial=False):
             if data.get((h,v,i1,j1)) == None:
                if isInitial:
                   data[(h,v,i1,j1)] = j
+
                #else:
                   #print("change0")
                   

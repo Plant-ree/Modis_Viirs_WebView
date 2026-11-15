@@ -18,6 +18,21 @@ from matplotlib.patches import Patch
 import numpy as np
 import h5py
 
+from burn import markus
+from getTile import getCoordsFromSubTile
+
+
+
+#input file from archive that's just colors (index 0 color corresponds to index 0 lat and lng)
+def dataToColor(data):
+    colors = ['#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#FF9500', '#FF0000', '#8B0000']
+    cmap = ListedColormap(colors)
+
+    norm = matplotlib.colors.Normalize()
+    tempData = norm(data)
+    rgba = cmap(tempData)
+    hex_colors = [matplotlib.colors.to_hex(c) for c in rgba]
+    return hex_colors;
 
 app = Flask(__name__)
 CORS(app)
@@ -94,21 +109,30 @@ def coords():
                 # Get the geolocation data
                 lat = f["/FP_latitude"][:]
                 lon = f["/FP_longitude"][:]
+
+            
         
-            colors = ['#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#FF9500', '#FF0000', '#8B0000']
+            """colors = ['#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#808080', '#FF9500', '#FF0000', '#8B0000']
             cmap = ListedColormap(colors)
 
             norm = matplotlib.colors.Normalize()
             tempData = norm(data)
             rgba = cmap(tempData)
-            hex_colors = [matplotlib.colors.to_hex(c) for c in rgba]
-
+            hex_colors = [matplotlib.colors.to_hex(c) for c in rgba]"""
+            hex_colors = dataToColor(data);
             result_array = np.column_stack((hex_colors, lon, lat)).astype(object)
             result_list = result_array.tolist()
             
             for x in result_list:
                 if x[0] != '#808080':
                     results_fin.insert(-1, x)
+        dataModis = markus(contentVect,(content['date'], content['date']))
+        for dm in dataModis.items():
+            coords = getCoordsFromSubTile(*dm[0])
+            color = dataToColor([dm[1]])
+            results_fin.insert([color[0],coords[1],coords[0]])
+
+
         return jsonify(results_fin)
     return jsonify([]);
 
