@@ -1,0 +1,15 @@
+name: hotspot
+channels:
+    - defaults
+    - conda-forge
+dependencies:
+    - python
+    - numpy
+    - gdal
+    - libgdal
+    - libgdal-hdf4
+    - earthdata
+    - h5py
+    - matplotlib
+    - flask
+    - flask_cors
