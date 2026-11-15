@@ -5,7 +5,164 @@ body
 }
 #map 
 { 
+  position: fixed;
+  z-index: 1;
   height: 100vh; 
   width: 100%;
 
+}
+#toggleFooterBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 3;
+    transition: bottom 0.3s ease-in-out;
+}
+#slideUpFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh; 
+    background-color: #ffffff;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#slideUpFooter.active {
+    transform: translateY(0);
+}
+
+.footer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.footer-left, 
+.footer-right {
+    flex: 1; display: flex;
+    flex-direction: column;
+}
+
+
+#toggleFooterBtn.active {
+    bottom: calc(30vh + 20px);
+}
+
+
+.item-list {
+    flex: 1; 
+    width: 27vw; 
+    background-color: #e0e0e0; 
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    height: 20%; 
+    min-height: 60px;
+    flex-shrink: 0; 
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+/* Item Image */
+.item img {
+    width: 40px;
+    height: 40px;
+    object-fit: fill;
+    margin-right: 15px;
+    border-radius: 4px;
+    background-color: #ccc; 
+}
+.item.selected {
+    background-color: rgba(255, 165, 0, 0.5); 
+    border: 1px solid orange;
+}
+
+#submitDateBtn,
+#date-selector{
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+
+.FooterInfo{
+font-size: 24px;
+margin: 0;
+font-family: "Verdana"
+}
+.Descriptor{
+    font-size: 14px;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: "Verdana"
+}
+
+
+
+.date-list {
+    flex: 1; 
+    height: 20%; 
+    width: 27vw; 
+    background-color: #e0e0e0; 
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.dateItem {
+    height: 20%; 
+    min-height: 60px;
+    flex-shrink: 0; 
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.dateItem:last-child {
+    border-bottom: none;
+}
+
+.dateItem.selected {
+    background-color: rgba(255, 165, 0, 0.5); 
+    border: 1px solid orange;
 }
