@@ -1,5 +1,5 @@
 # How to use
-Alright so there are some keyboard shortcuts. 
+Alright so there are some keyboard/mouse inputs. 
 ### 1. Left click
    Click once and that will be the starting point of your polygon, click again to make the first line, and so on. You cannot clip lines.
 ### 2. Right click
